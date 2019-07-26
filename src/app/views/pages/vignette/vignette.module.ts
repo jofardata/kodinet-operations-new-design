@@ -1,11 +1,31 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VignetteListComponent } from './vignette-list/vignette-list.component';
-
+import { VignetteComponent } from './vignette-list/vignette-list.component';
+import { RouterModule } from '@angular/router';
+import { MatInputModule, MatIconModule, MatButtonModule, MatNativeDateModule, MatListModule, MatToolbarModule, MatSidenavModule, MatDatepickerModule, MatSortModule, MatTableModule, MatPaginatorModule } from '@angular/material';
+const routes=[
+  {
+    path:'',
+    component:VignetteComponent
+  }
+]
 @NgModule({
-  declarations: [VignetteListComponent],
+  declarations: [VignetteComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule.forChild(routes),
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule,
+    MatNativeDateModule,
+    MatListModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatTableModule,
+    MatDatepickerModule,
+    MatPaginatorModule,
+    MatSortModule,
   ]
 })
 export class VignetteModule { }

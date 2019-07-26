@@ -27,7 +27,7 @@
           <mat-table [dataSource]="dataSource" matSort >
              <ng-container matColumnDef="createdOn">
                   <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Date</mat-header-cell>
-                  <mat-cell *matCellDef="let element" ><span >{{element.createdOn|date:'short'}}</span></mat-cell>
+                  <mat-cell *matCellDef="let element" ><span >{{element.createdOn|date:'dd/MM/yyyy HH:mm:ss'}}</span></mat-cell>
               </ng-container> 
                 <!-- <ng-container matColumnDef="loading">
                 <mat-footer-cell class="t-head" *matFooterCellDef mat-sort-header>Loading Data</mat-footer-cell>    
@@ -52,6 +52,7 @@
                       <span *ngIf="element.status=='pending'" class="label label-warning btnOrange">{{element.status|lowercase}}</span>
                       <span *ngIf="element.status=='rejected'" class="label label-danger btnRed">{{element.status|lowercase}}</span>
                       <span *ngIf="element.status=='unpaid'" class="label label-default btnRed">{{element.status|lowercase}}</span>
+                      <span *ngIf="element.status==null" class="label label-default"> INCONNU</span>
                     </mat-cell>
                </ng-container>
                 <ng-container matColumnDef="town">

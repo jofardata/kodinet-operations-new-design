@@ -112,56 +112,56 @@
         </mat-form-field>
     </div>
     <div style="margin-left: 2px; margin-top:10px" class="col-md-2">
-      <button (click)="regenerer()" class="btnBlue btn-block btn-large btn-lg fichier">Generer un fichier excel</button>
-    </div>
+      <button (click)="regenerer()" mat-raised-button color="primary" matTooltip="Generer un fichier excel">Generer un fichier excel</button>
+      </div>
   </div>
   <img style="float: right" (click)="onRefresh()" style="margin-left:100px" width="30px" height="30px" src="../../assets/refresh.png" alt="">            
       <div class="mat-elevation-z8">
         <mat-table [dataSource]="dataSource" matSort >
            <ng-container matColumnDef="createdOn">
-                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;"> Date de création</mat-header-cell>
-                <mat-cell *matCellDef="let element" ><span >{{element.createdOn|date:'EEEE, d /MMMM/y'}}</span></mat-cell>
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header > Date de création</mat-header-cell>
+                <mat-cell *matCellDef="let element" ><span >{{element.createdOn|date:'dd/MM/yyyy HH:mm:ss'}}</span></mat-cell>
             </ng-container> 
              <ng-container matColumnDef="expiresOn">
-                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;"> Date d'Expiration</mat-header-cell>
-                <mat-cell *matCellDef="let element" ><span >{{element.expiresOn|date:'EEEE, d /MMMM/y'}}</span></mat-cell>
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header > Date d'Expiration</mat-header-cell>
+                <mat-cell *matCellDef="let element" ><span >{{element.expiresOn|date:'dd/MM/yyyy HH:mm:ss'}}</span></mat-cell>
             </ng-container> 
                <ng-container matColumnDef="loading">
               <mat-footer-cell class="" *matFooterCellDef mat-sort-header>Loading Data</mat-footer-cell>    
               </ng-container>
               <ng-container matColumnDef="agentName">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;">Nom de l'Agent</mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  >Nom de l'Agent</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.agentName}}</mat-cell>
               </ng-container> 
               <ng-container matColumnDef="agentEmail">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;"> Mail Agent </mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Mail Agent </mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.agentEmail}}</mat-cell>
               </ng-container>     
              <ng-container matColumnDef="category">
-                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;">Categorie </mat-header-cell>
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  >Categorie </mat-header-cell>
                 <mat-cell  *matCellDef="let element">{{element.category}} </mat-cell>
               </ng-container>
               <ng-container matColumnDef="chassis">
-                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header style="color:white;">Chassie</mat-header-cell>
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Chassie</mat-header-cell>
                 <mat-cell  *matCellDef="let element">{{element.chassis}}</mat-cell>
              </ng-container>
               <ng-container matColumnDef="owner">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header style="color:white;">Propriètaire</mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Propriètaire</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.owner}} 
                   </mat-cell>
               </ng-container>  
             <ng-container matColumnDef="amount">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header style="color:white;">Montant à payé</mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header>Montant à payé</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.amount}} {{element.currency}}
                   </mat-cell>
               </ng-container>
             <ng-container matColumnDef="number">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header style="color:white;">Numéro</mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Numéro</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.number}}
                   </mat-cell>
               </ng-container> 
             <ng-container matColumnDef="make">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header style="color:white;">Marque</mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Marque</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.make}}
                   </mat-cell>
               </ng-container>     

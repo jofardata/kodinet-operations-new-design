@@ -102,51 +102,48 @@
         </mat-form-field>
     </div>
     <div style="margin-left: 2px; margin-top:10px" class="col-md-2">
-      <button (click)="regenerer()" class="btnBlue btn-block btn-large btn-lg fichier">Generer un fichier excel</button>
-    </div>
+      <button (click)="regenerer()" mat-raised-button color="primary" matTooltip="Generer un fichier excel">Generer un fichier excel</button>
+      </div>
   </div>
   <img style="float: right" (click)="onRefresh()" style="margin-left:100px" width="30px" height="30px" src="../../assets/refresh.png" alt="">
                        
       <div class="mat-elevation-z8">
         <mat-table [dataSource]="dataSource" matSort >
            <ng-container matColumnDef="createdOn">
-                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;"> Date</mat-header-cell>
-                <mat-cell *matCellDef="let element" ><span >{{element.createdOn|date:'short'}}</span></mat-cell>
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Date</mat-header-cell>
+                <mat-cell *matCellDef="let element" ><span >{{element.createdOn|date:'dd/MM/yyyy HH:mm:ss'}}</span></mat-cell>
             </ng-container> 
              <ng-container matColumnDef="passengerName">
-                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;"> Nom passager</mat-header-cell>
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Nom passager</mat-header-cell>
                 <mat-cell *matCellDef="let element" ><span >{{element.passengerName}}</span></mat-cell>
             </ng-container> 
-               <ng-container matColumnDef="loading">
-              <mat-footer-cell class="" *matFooterCellDef mat-sort-header>Loading Data</mat-footer-cell>    
-              </ng-container> 
+               
                <ng-container matColumnDef="genre">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;">Genre</mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  >Genre</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.genre}}</mat-cell>
               </ng-container> 
               <ng-container matColumnDef="flightNumber">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;"> Numéro de vol </mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Numéro de vol </mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.flightNumber}}</mat-cell>
               </ng-container>   
               <ng-container matColumnDef="destination">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  style="color:white;"> Déstination </mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Déstination </mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.destination}}</mat-cell>
               </ng-container>     
               <ng-container matColumnDef="amount">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header style="color:white;">Montant à payé</mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Montant à payé</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.amount}}
                   </mat-cell>
               </ng-container>  
               <ng-container matColumnDef="currency">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header style="color:white;">Dévise</mat-header-cell>
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Dévise</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.currency}}
                   </mat-cell>
               </ng-container>
           
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row> -->
-        <mat-footer-row  style="justify-content: center" *matFooterRowDef="['loading']" ngClass="{'hide':data!=null}">
-        </mat-footer-row>
+        
      </mat-table>
         <mat-paginator
         (page)="onPageChanged($event)"
