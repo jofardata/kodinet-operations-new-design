@@ -53,6 +53,7 @@ import * as scss from 'highlight.js/lib/languages/scss';
 import * as xml from 'highlight.js/lib/languages/xml';
 import * as json from 'highlight.js/lib/languages/json';
 import { ToastrModule } from 'ngx-toastr';
+import { EmbarquementComponent } from './embarquement/embarquement.component';
 
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -81,7 +82,7 @@ export function hljsLanguages(): HighlightLanguage[] {
 }
 
 @NgModule({
-	declarations: [AppComponent],
+	declarations: [AppComponent, EmbarquementComponent],
 	imports: [
 		BrowserAnimationsModule,
 		BrowserModule,

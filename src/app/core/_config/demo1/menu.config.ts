@@ -379,19 +379,19 @@ export class MenuConfig {
 					title: 'Freits aeriens',
 					root: true,
 					icon: 'flaticon2-expand',
-					page: 'builder'
+					page: 'fret'
 				},
 				{
 					title: 'Embarquements',
 					root: true,
 					icon: 'flaticon2-browser-2',
-					page: 'builder'
+					page: 'boarding'
 				},
 				{
 					title: 'Go Pass',
 					root: true,
 					icon: 'flaticon2-user-outline-symbol',
-					page: 'builder'
+					page: 'gopass'
 				},
 				
 				{
@@ -404,7 +404,7 @@ export class MenuConfig {
 					title: 'Vignettes',
 					root: true,
 					icon: 'flaticon2-expand',
-					page: 'builder'
+					page: 'vignette'
 				},
 				{section: 'Ignorez ceci'},
 				{

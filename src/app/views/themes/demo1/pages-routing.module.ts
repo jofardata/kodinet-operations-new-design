@@ -50,6 +50,22 @@ const routes: Routes = [
 				loadChildren: 'app/views/pages/driving-license/driving-license.module#DrivingLicenseModule'
 			},
 			{
+				path: 'fret',
+				loadChildren: 'app/views/pages/fret/fret.module#FretModule'
+			},
+			{
+				path: 'gopass',
+				loadChildren: 'app/views/pages/gopass/gopass.module#GopassModule'
+			},
+			{
+				path: 'boarding',
+				loadChildren: 'app/views/pages/boarding/boarding.module#BoardingModule'
+			},
+			{
+				path: 'vignette',
+				loadChildren: 'app/views/pages/vignette/vignette.module#VignetteModule'
+			},
+			{
 				path: 'builder',
 				loadChildren: 'app/views/themes/demo1/content/builder/builder.module#BuilderModule'
 			},
