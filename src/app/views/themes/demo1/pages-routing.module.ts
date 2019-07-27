@@ -66,6 +66,10 @@ const routes: Routes = [
 				loadChildren: 'app/views/pages/vignette/vignette.module#VignetteModule'
 			},
 			{
+				path: 'agent',
+				loadChildren: 'app/views/pages/agent/agent.module#AgentModule'
+			},
+			{
 				path: 'builder',
 				loadChildren: 'app/views/themes/demo1/content/builder/builder.module#BuilderModule'
 			},

@@ -28,7 +28,7 @@ export class VignetteComponent implements OnInit {
     private excelService : ExcelService) { 
 
   }
-  displayedColumns: string[] = ['createdOn', 'expiresOn', 'category','amount','make','agentEmail','chassis','number','owner'];
+  displayedColumns: string[] = ['createdOn', 'expiresOn', 'category','amount','make','chassis','number','owner'];
   dataSource;
   totalElements;
 

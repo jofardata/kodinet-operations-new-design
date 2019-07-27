@@ -126,17 +126,15 @@
                 <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header > Date d'Expiration</mat-header-cell>
                 <mat-cell *matCellDef="let element" ><span >{{element.expiresOn|date:'dd/MM/yyyy HH:mm:ss'}}</span></mat-cell>
             </ng-container> 
-               <ng-container matColumnDef="loading">
-              <mat-footer-cell class="" *matFooterCellDef mat-sort-header>Loading Data</mat-footer-cell>    
-              </ng-container>
+    
               <ng-container matColumnDef="agentName">
                   <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  >Nom de l'Agent</mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.agentName}}</mat-cell>
               </ng-container> 
-              <ng-container matColumnDef="agentEmail">
+              <!-- <ng-container matColumnDef="agentEmail">
                   <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Mail Agent </mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.agentEmail}}</mat-cell>
-              </ng-container>     
+              </ng-container>      -->
              <ng-container matColumnDef="category">
                 <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  >Categorie </mat-header-cell>
                 <mat-cell  *matCellDef="let element">{{element.category}} </mat-cell>
@@ -167,8 +165,7 @@
               </ng-container>     
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-        <mat-footer-row  style="justify-content: center" *matFooterRowDef="['loading']" ngClass="{'hide':data!=null}">
-        </mat-footer-row> 
+        
      </mat-table>
         <mat-paginator
         (page)="onPageChanged($event)"

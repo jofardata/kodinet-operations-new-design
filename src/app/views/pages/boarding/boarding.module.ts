@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BoardingComponent } from './boarding-list/boarding-list.component';
 import { RouterModule } from '@angular/router';
 import { MatInputModule, MatIconModule, MatButtonModule, MatNativeDateModule, MatListModule, MatToolbarModule, MatSidenavModule, MatDatepickerModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MaterialElementsModule } from '../material-elements/material-elements.module';
 const routes=[{
   path:'',
   component:BoardingComponent
@@ -12,18 +13,7 @@ const routes=[{
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    MatNativeDateModule,
-    MatListModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatDatepickerModule,
-    MatTableModule,
-    MatDatepickerModule,
-    MatPaginatorModule,
-    MatSortModule,
+    MaterialElementsModule
   ]
 })
 export class BoardingModule { }

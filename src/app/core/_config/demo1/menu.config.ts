@@ -361,11 +361,15 @@ export class MenuConfig {
 					submenu: [
 						{
 							title: 'Agents',
-							page: 'user-management/users'
+							page: 'agent'
 						},
 						{
-							title: 'Roles',
-							page: 'user-management/roles'
+							title: 'Creer un agent',
+							page: 'agent/create'
+						},
+						{
+							title: 'Associer role',
+							page: 'agent/add-role'
 						}
 					]
 				},
