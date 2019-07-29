@@ -366,6 +366,10 @@ export class MenuConfig {
 						{
 							title: 'Roles',
 							page: 'user-management/roles'
+						},
+						{
+							title: 'Creation utilisateur',
+							page: 'user-management/user-create'
 						}
 					]
 				},

@@ -54,6 +54,7 @@ import {
 	usersReducer,
 	UserEffects
 } from '../../../core/auth';
+import { UserCreateComponent } from './user-create/user-create.component';
 
 const routes: Routes = [
 	{
@@ -72,6 +73,10 @@ const routes: Routes = [
 			{
 				path: 'users',
 				component: UsersListComponent
+			},
+			{
+				path: 'user-create',
+				component: UserCreateComponent
 			},
 			{
 				path: 'users:id',
@@ -163,7 +168,8 @@ const routes: Routes = [
 		UserRolesListComponent,
 		ChangePasswordComponent,
 		AddressComponent,
-		SocialNetworksComponent
+		SocialNetworksComponent,
+		UserCreateComponent
 	]
 })
 export class UserManagementModule {}

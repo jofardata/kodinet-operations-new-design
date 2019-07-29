@@ -46,6 +46,10 @@ const routes: Routes = [
 				loadChildren: 'app/views/pages/user-management/user-management.module#UserManagementModule'
 			},
 			{
+				path: 'user-create',
+				loadChildren: 'app/views/pages/user-create/user-create.module#UserCreateModule'
+			},
+			{
 				path: 'driving-license',
 				loadChildren: 'app/views/pages/driving-license/driving-license.module#DrivingLicenseModule'
 			},

@@ -1,0 +1,76 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-4 rechercher">
+        <div>
+        <P>RECHERCHE DE LA PERSONNE</P>
+          <form  [formGroup]="myForm" (ngSubmit)="postRecherche(myForm)" class="md-form mr-auto mb-4"> 
+              <input class="form-control mr-sm-2" type="text" formControlName="bdnId" placeholder="rechercher" aria-label="Search"><br/>
+              <button class="btn btn-info btn-block my-4" type="submit">Rechercher</button>
+          </form><br/>
+          </div>
+          <div *ngIf="responseCode ==='00'; else nodata" class="tableActivityAgent">
+            <P >Liste de la Personne trouver</P>
+                Nom : {{middleName}} <br/>
+                Prenom: {{lastName}} <br/>
+                Genre:{{gender}} <br/>
+                Tel:{{phone}}
+          </div>
+          <ng-template #nodata>Pas de resultat</ng-template>
+      </div>
+        <div class="col-sm-5 mx-auto">
+              <div class="corp">
+                  <form [formGroup]="myForm" (ngSubmit)="post(myForm)">
+                      <!-- BDNID -->                
+                      <label for="id">Bdn Id</label>
+                      <input type="text" id="id" formControlName="bdnId" placeholder="Entrer un id" value="{{bdnId}}" class="form-control"/>
+                      
+                      <!-- AGENT NAME -->
+                      <label for="id">Nom de l'Agent</label>
+                      <input type="text" id="id" formControlName="agentName" placeholder="" value="{{middleName}}  {{lastName}}" class="form-control"/>
+      
+                      <!-- SECTEUR -->
+                      <label for="sector">Secteur</label>
+                      <select  id="sector" formControlName="sectorId" class="form-control">
+                        <option *ngFor="let sect of sectors" value="{{sect.id}}">{{sect.name}}</option>   
+                      </select>
+                      
+                      <label for="sectorId">Id du Secteur</label>
+                      <input type="text"  *ngFor="let sect of sectors" id="sectorId" formControlName="sectorName" value="{{sect.sectorName}}" class="form-control"/>
+
+                      <!-- <label for="sectorName">Nom du Secteur</label>
+                      <input type="text" id="sectorName" formControlName="sectorName" value="{{name}}" class="form-control"/> -->
+                    
+                      <!-- ENTITE -->
+                      <label for="entity">Entité Fiscale</label>
+                      <select id="entity" formControlName="entityId" class="form-control">
+                        <option *ngFor="let entity of fiscalEntity" value="{{entity.id}}">{{entity.name}}</option>   
+                      </select>
+      
+                      <!-- <label for="entityId">Id de l'Entité</label>
+                      <input type="text" id="entityId" formControlName="entityId" value="{{entityId}}" class="form-control"/>
+                       -->
+                      <!-- <label for="entityName">Nom de l'Entité</label> -->
+                      <!-- <input type="text" id="entityName" formControlName="entityName" value="{{entity.split(:)[1]}}" class="form-control" disabled/> -->
+                      
+                      <!-- ROLE -->
+                      <label for="roleId">Rôle</label>
+                      <select id="roleId" formControlName="roleId"  class="form-control">
+                           <option *ngFor="let listRole of Roles" value="{{listRole.id}}">{{listRole.role}}</option>   
+                      </select>
+      
+                      <!-- TELEPHONE -->
+                      <label for="phone">Numero téléphone</label>
+                      <input type="text" value="{{phone}}" formControlName="telephone" class="form-control" placeholder="Entrer votre numéro téléphone"/>
+                          <br/>
+      
+                      <!-- CREATED BY -->
+                      <input type="hidden" formControlName="createdBy" value="{{name}}"/>
+                      <!-- SUBMIT -->
+                      <input type="submit"  value="Enregister" class="btn btn-primary btn-block"/>
+                  </form>
+            </div>
+          </div>
+          <div class="col-sm-3"><p>  </p></div>
+    </div>
+  </div>
+  
