@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GopassComponent } from './gopass-list/gopass-list.component';
 import { RouterModule } from '@angular/router';
 import { MatInputModule, MatIconModule, MatButtonModule, MatNativeDateModule, MatListModule, MatToolbarModule, MatSidenavModule, MatDatepickerModule, MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MaterialElementsModule } from '../material-elements/material-elements.module';
 const routes=[
   {
     path:'',
@@ -14,18 +15,7 @@ const routes=[
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    MatNativeDateModule,
-    MatListModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatDatepickerModule,
-    MatTableModule,
-    MatDatepickerModule,
-    MatPaginatorModule,
-    MatSortModule,
+    MaterialElementsModule
   ]
 })
 export class GopassModule { }

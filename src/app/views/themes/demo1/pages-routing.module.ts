@@ -45,10 +45,10 @@ const routes: Routes = [
 				path: 'user-management',
 				loadChildren: 'app/views/pages/user-management/user-management.module#UserManagementModule'
 			},
-			{
-				path: 'user-create',
-				loadChildren: 'app/views/pages/user-create/user-create.module#UserCreateModule'
-			},
+			// {
+			// 	path: 'user-create',
+			// 	loadChildren: 'app/views/pages/user-create/user-create.module#UserCreateModule'
+			// },
 			{
 				path: 'driving-license',
 				loadChildren: 'app/views/pages/driving-license/driving-license.module#DrivingLicenseModule'
@@ -68,6 +68,10 @@ const routes: Routes = [
 			{
 				path: 'vignette',
 				loadChildren: 'app/views/pages/vignette/vignette.module#VignetteModule'
+			},
+			{
+				path: 'agent',
+				loadChildren: 'app/views/pages/agent/agent.module#AgentModule'
 			},
 			{
 				path: 'builder',

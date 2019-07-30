@@ -98,6 +98,10 @@ const routes: Routes = [
 				path: 'users/edit/:id',
 				component: UserEditComponent
 			},
+			{
+				path: 'users/_subs/change-password',
+				component: ChangePasswordComponent
+			},
 		]
 	}
 ];

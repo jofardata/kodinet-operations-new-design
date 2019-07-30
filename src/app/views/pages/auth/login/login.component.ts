@@ -108,19 +108,19 @@ export class LoginComponent implements OnInit, OnDestroy {
 			localStorage.setItem('roleId', response.body.data.userRole.id);
 			localStorage.setItem('password', response.body.data.password);
 			localStorage.setItem('createPar',response.body.data.createdBy);
-			localStorage.setItem('loggedIn',"yes");
-			this.global.showSuccess("Bienvenu..."+response.body.data.bdnId)
-			 this.router.navigate(['/']);
+			localStorage.setItem('loggedIn',"yes");			 
 			if (response.body.data.hasChangedPassword === true) {
 				this.global.showSuccess("Bienvenu..."+response.body.data.bdnId);
+				this.router.navigate(['/']);
 			}
 			 else {
 				this.loading=false;
-			  this.router.navigate(['/dashboard/connexion'])
+				this.router.navigate(['/demo1/agents/reset-password'])
 			 }
 		  }else{
 			this.loading=false;
 			this.global.showError(response.body.responseMessage)
+			// alert(response.body.responseMessage);
 		  }
 		},err=>{
 			this.loading=false;

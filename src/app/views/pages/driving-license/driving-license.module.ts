@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { DrivingLicenseListComponent } from './driving-license-list/driving-license-list.component';
 import { RouterModule } from '@angular/router';
 import { MatInputModule, MatIconModule, MatButtonModule, MatNativeDateModule, MatListModule, MatToolbarModule, MatSidenavModule, MatDatepickerModule, MatTableModule, MatSortModule, MatPaginatorModule } from '@angular/material';
+import { MaterialElementsModule } from '../material-elements/material-elements.module';
 
 const routes=[{
   path:'',
@@ -11,20 +12,9 @@ const routes=[{
 @NgModule({
   declarations: [DrivingLicenseListComponent],
   imports: [
+    MaterialElementsModule,
     CommonModule,
-    RouterModule.forChild(routes),
-    MatInputModule,
-    MatIconModule,
-    MatButtonModule,
-    MatNativeDateModule,
-    MatListModule,
-    MatToolbarModule,
-    MatSidenavModule,
-    MatDatepickerModule,
-    MatTableModule,
-    MatDatepickerModule,
-    MatPaginatorModule,
-    MatSortModule,
+    RouterModule.forChild(routes)
   ]
 })
 export class DrivingLicenseModule { }

@@ -361,7 +361,7 @@ export class MenuConfig {
 					submenu: [
 						{
 							title: 'Agents',
-							page: 'user-management/users'
+							page: 'agent'
 						},
 						{
 							title: 'Roles',
@@ -370,7 +370,19 @@ export class MenuConfig {
 						{
 							title: 'Creation utilisateur',
 							page: 'user-management/user-create'
-						}
+						},
+						{
+							title: 'crete agent',
+							page: 'agent/create'
+						},
+						{
+							title: 'Associer role',
+							page: 'agent/add-role'
+						},
+						// {
+						// 	title: 'reini',
+						// 	page: 'agent/add-role'
+						// }
 					]
 				},
 				{
