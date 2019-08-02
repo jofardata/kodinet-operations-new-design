@@ -723,14 +723,7 @@ export class MenuConfig {
 							title: 'Agents',
 							page: 'agent'
 						},
-						{
-							title: 'Roles',
-							page: 'user-management/roles'
-						},
-						{
-							title: 'Creation utilisateur',
-							page: 'user-management/user-create'
-						},
+
 						{
 							title: 'crete agent',
 							page: 'agent/create'
