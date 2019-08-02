@@ -8,13 +8,28 @@ import { LayoutConfigService } from '../../../core/_base/layout';
 import { SparklineChartOptions } from '../../../core/_base/layout';
 import { Widget4Data } from '../../partials/content/widgets/widget4/widget4.component';
 import { StatsService } from './stats.service';
-
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Label, Color, SingleDataSet } from 'ng2-charts';
+import {monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 @Component({
 	selector: 'kt-dashboard',
 	templateUrl: './dashboard.component.html',
 	styleUrls: ['dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+
+	public pieChartLabels: Label[] = ['Trancom','Mines','PMEA','Freight','Industry','Energie'];
+	public pieChartData: SingleDataSet = [300, 500, 100,200,500,50];
+	public pieChartType: ChartType = 'pie';
+	public pieChartLegend = true;
+	public pieChartPlugins = [];
+
+
+	constructor(private layoutConfigService: LayoutConfigService,
+		private statsService:StatsService) {
+			monkeyPatchChartJsTooltip();
+	  monkeyPatchChartJsLegend();
+	}
 	chartOptions1: SparklineChartOptions;
 	chartOptions2: SparklineChartOptions;
 	chartOptions3: SparklineChartOptions;
@@ -24,17 +39,30 @@ export class DashboardComponent implements OnInit {
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
 	stats;
+	data
+	public barChartOptions: ChartOptions = {
+		responsive: true,
+	  };
+	  public pieChartOptions: ChartOptions = {
+		responsive: true,
+	  };
+	  public barChartLabels: Label[] = ['Janv', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','oct','Nov','Dec'];
+	  public barChartType: ChartType = 'bar';
+	  public barChartLegend = false;
+	  public barChartPlugins = [];
 
+	  public barChartData: ChartDataSets[] = [
+		{ data: [25, 32, 35, 38, 40, 21, 19,41,43,40,17,32] },
+	  ];
+	  public barChartColors: Color[] = [
+		{ backgroundColor: '#1E1E2D' }
+	  ]
 
-	constructor(private layoutConfigService: LayoutConfigService,
-		private statsService:StatsService) {
-	}
 
 	ngOnInit(): void {
 
 		this.statsService.getAllStats().subscribe(res=>{
-			console.log(res.body.data)
-this.stats = res.body.data;
+			this.stats=res.body.data
 		})
 
 		this.chartOptions1 = {

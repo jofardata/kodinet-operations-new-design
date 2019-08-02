@@ -2,8 +2,7 @@
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 // Layout
 import { LayoutConfigService } from '../../../../../core/_base/layout';
-// Charts
-import { Chart } from 'chart.js';
+
 
 @Component({
 	selector: 'kt-widget14',
@@ -81,17 +80,14 @@ export class Widget14Component implements OnInit {
 				},
 				responsive: true,
 				maintainAspectRatio: false,
-				barRadius: 4,
 				scales: {
 					xAxes: [{
 						display: false,
-						gridLines: false,
 						stacked: true
 					}],
 					yAxes: [{
 						display: false,
 						stacked: true,
-						gridLines: false
 					}]
 				},
 				layout: {
