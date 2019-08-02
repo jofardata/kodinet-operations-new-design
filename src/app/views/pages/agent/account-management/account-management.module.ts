@@ -9,7 +9,7 @@ const routes=[{
 }]
 
 @NgModule({
-  declarations: [ResetPasswordComponent],
+  declarations: [],
   imports: [
     CommonModule,
     CommonModule,

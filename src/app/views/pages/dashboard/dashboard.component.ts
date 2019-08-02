@@ -7,6 +7,7 @@ import { LayoutConfigService } from '../../../core/_base/layout';
 // Widgets model
 import { SparklineChartOptions } from '../../../core/_base/layout';
 import { Widget4Data } from '../../partials/content/widgets/widget4/widget4.component';
+import { StatsService } from './stats.service';
 
 @Component({
 	selector: 'kt-dashboard',
@@ -22,11 +23,20 @@ export class DashboardComponent implements OnInit {
 	widget4_2: Widget4Data;
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
+	stats;
 
-	constructor(private layoutConfigService: LayoutConfigService) {
+
+	constructor(private layoutConfigService: LayoutConfigService,
+		private statsService:StatsService) {
 	}
 
 	ngOnInit(): void {
+
+		this.statsService.getAllStats().subscribe(res=>{
+			console.log(res.body.data)
+this.stats = res.body.data;
+		})
+
 		this.chartOptions1 = {
 			data: [10, 14, 18, 11, 9, 12, 14, 17, 18, 14],
 			color: this.layoutConfigService.getConfig('colors.state.brand'),
