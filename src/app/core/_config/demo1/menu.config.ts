@@ -739,6 +739,10 @@ export class MenuConfig {
 							title: 'Associer role',
 							page: 'agent/add-role'
 						},
+						{
+							title: 'Changer mot de passe',
+							page: 'agent/reset-password'
+						},
 
 					]
 				},

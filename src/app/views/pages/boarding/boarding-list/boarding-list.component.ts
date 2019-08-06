@@ -34,7 +34,7 @@ export class BoardingComponent implements OnInit {
 
   ngOnInit() {
     this.page = 0;
-    this.size = 5;
+    this.size = 50;
     this.getData();
   }
 
@@ -60,7 +60,7 @@ export class BoardingComponent implements OnInit {
       this.dataSource.filter = filterValue;
   }
   onPageChanged(e){
-    this.BoardingService.getPagedData(e.pageIndex, 5).subscribe(response=>{
+    this.BoardingService.getPagedData(e.pageIndex, 50).subscribe(response=>{
       console.log(response)
       this.boarding = response.body.data;
       this.dataSource = new MatTableDataSource(response.body.data.content);
@@ -70,7 +70,7 @@ export class BoardingComponent implements OnInit {
   
   }
   onRefresh(){
-    this.BoardingService.getPagedData(0, 5).subscribe(response=>{
+    this.BoardingService.getPagedData(0, 50).subscribe(response=>{
       console.log(response)
       this.boarding = response.body.data;
       this.dataSource = new MatTableDataSource(response.body.data.content);
@@ -86,7 +86,7 @@ export class BoardingComponent implements OnInit {
   onDate2(e){
     this.maxDate =e.target.value;
       this.date2 =new Date(e.target.value).getTime();
-      this.BoardingService.getPagedDataBetweenDates(0, 5, new Date(this.date1).getTime(),new Date(this.date2).getTime()).subscribe(response=>{
+      this.BoardingService.getPagedDataBetweenDates(0, 50, new Date(this.date1).getTime(),new Date(this.date2).getTime()).subscribe(response=>{
         console.log(response)
         this.boarding = response.body.data;
         this.dataSource = new MatTableDataSource(response.body.data.content);
