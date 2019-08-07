@@ -17,16 +17,6 @@ import {monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 	styleUrls: ['dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
-	// public pieChartLabels: Label[] = ['Trancom','Mines','PMEA','Freight','Industry','Energie'];
-	public pieChartLabels: Label[] = ['Transcom'];
-	// public pieChartData: SingleDataSet = [300, 500, 100,200,500,50];
-	public pieChartData: SingleDataSet = [300];
-	public pieChartType: ChartType = 'pie';
-	public pieChartLegend = true;
-	public pieChartPlugins = [];
-
-
 	constructor(private layoutConfigService: LayoutConfigService,
 		private statsService:StatsService) {
 			monkeyPatchChartJsTooltip();
@@ -41,7 +31,23 @@ export class DashboardComponent implements OnInit {
 	widget4_3: Widget4Data;
 	widget4_4: Widget4Data;
 	stats;
-	data
+	data;
+
+	// getStat() {
+	// 	this.statsService.getAllStats().subscribe(res=>{
+	// 	  this.stats = res.body.data
+	// 	//   alert(this.stats);
+	//   })
+	// } 
+	// public pieChartLabels: Label[] = ['Trancom','Mines','PMEA','Freight','Industry','Energie'];
+	public pieChartLabels: Label[] = ['Transcom'];
+	// public pieChartData: SingleDataSet = [300, 500, 100,200,500,50];
+	public pieChartData: SingleDataSet = [
+		500
+	];
+	public pieChartType: ChartType = 'pie';
+	public pieChartLegend = true;
+	public pieChartPlugins = [];
 	public barChartOptions: ChartOptions = {
 		responsive: true,
 	  };
@@ -55,11 +61,6 @@ export class DashboardComponent implements OnInit {
 	  public barChartColors: Color[] = [
 		{ backgroundColor: '#1E1E2D' }
 	  ]
-	  getStat() {
-	  this.statsService.getAllStats().subscribe(res=>{
-		this.stats = res.body.data
-	})
-  } 
 
   public barChartLabels: Label[] = ['Janv', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','oct','Nov','Dec'];
 	  public barChartType: ChartType = 'bar';
@@ -68,9 +69,9 @@ export class DashboardComponent implements OnInit {
 
 	ngOnInit(): void {
 
-		// this.statsService.getAllStats().subscribe(res=>{
-		// 	this.stats = res.body.data
-		// })
+		this.statsService.getAllStats().subscribe(res=>{
+			this.stats = res.body.data
+		})
 
 		this.chartOptions1 = {
 			data: [10, 14, 18, 11, 9, 12, 14, 17, 18, 14],
