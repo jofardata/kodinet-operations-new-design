@@ -16,13 +16,13 @@ export class CreateUserService {
   // recuperer toutes les entites
   public getAllEntites(){
     //retour de la requete
-    return this.http.get<any>("https://proceduresfiscales.herokuapp.com/fiscalentity/find-all",{observe:'response'});
+    return this.http.get<any>("https://kodinet.herokuapp.com/fiscalentity/find-all",{observe:'response'});
   }
 
 // recuperation de secteur
   public getAllSector(){
     //retour de la requete
-    return this.http.get<any>("https://proceduresfiscales.herokuapp.com/sector/find-all",{observe:'response'});
+    return this.http.get<any>("https://kodinet.herokuapp.com/sector/read-all",{observe:'response'});
   }
 
   // recuperer tous les roles
