@@ -18,8 +18,10 @@ import {monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 })
 export class DashboardComponent implements OnInit {
 
-	public pieChartLabels: Label[] = ['Trancom','Mines','PMEA','Freight','Industry','Energie'];
-	public pieChartData: SingleDataSet = [300, 500, 100,200,500,50];
+	// public pieChartLabels: Label[] = ['Trancom','Mines','PMEA','Freight','Industry','Energie'];
+	public pieChartLabels: Label[] = ['Transcom'];
+	// public pieChartData: SingleDataSet = [300, 500, 100,200,500,50];
+	public pieChartData: SingleDataSet = [300];
 	public pieChartType: ChartType = 'pie';
 	public pieChartLegend = true;
 	public pieChartPlugins = [];
@@ -46,10 +48,6 @@ export class DashboardComponent implements OnInit {
 	  public pieChartOptions: ChartOptions = {
 		responsive: true,
 	  };
-	  public barChartLabels: Label[] = ['Janv', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','oct','Nov','Dec'];
-	  public barChartType: ChartType = 'bar';
-	  public barChartLegend = false;
-	  public barChartPlugins = [];
 
 	  public barChartData: ChartDataSets[] = [
 		{ data: [25, 32, 35, 38, 40, 21, 19,41,43,40,17,32] },
@@ -57,13 +55,22 @@ export class DashboardComponent implements OnInit {
 	  public barChartColors: Color[] = [
 		{ backgroundColor: '#1E1E2D' }
 	  ]
+	  getStat() {
+	  this.statsService.getAllStats().subscribe(res=>{
+		this.stats = res.body.data
+	})
+  } 
 
+  public barChartLabels: Label[] = ['Janv', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','oct','Nov','Dec'];
+	  public barChartType: ChartType = 'bar';
+	  public barChartLegend = false;
+	  public barChartPlugins = [];
 
 	ngOnInit(): void {
 
-		this.statsService.getAllStats().subscribe(res=>{
-			this.stats=res.body.data
-		})
+		// this.statsService.getAllStats().subscribe(res=>{
+		// 	this.stats = res.body.data
+		// })
 
 		this.chartOptions1 = {
 			data: [10, 14, 18, 11, 9, 12, 14, 17, 18, 14],

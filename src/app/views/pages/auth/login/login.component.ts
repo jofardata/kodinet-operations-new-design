@@ -110,7 +110,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 			localStorage.setItem('createPar',response.body.data.createdBy);
 			localStorage.setItem('loggedIn',"yes");
 			if (response.body.data.hasChangedPassword === true) {
-				this.global.showSuccess("Bienvenu..."+response.body.data.bdnId);
+				this.global.showSuccess("Bienvenu..."+response.body.data.name);
 				this.router.navigate(['/']);
 
 			}

@@ -744,6 +744,11 @@ export class MenuConfig {
 							page: 'agent/reset-password'
 						},
 
+						{
+							title: 'Changer mot de passe',
+							page: 'agent/reset-password'
+						},
+
 					]
 				},
 

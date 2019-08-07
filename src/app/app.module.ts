@@ -54,7 +54,7 @@ import * as xml from 'highlight.js/lib/languages/xml';
 import * as json from 'highlight.js/lib/languages/json';
 import { ToastrModule } from 'ngx-toastr';
 import { EmbarquementComponent } from './embarquement/embarquement.component';
-
+import { ChartsModule } from 'ng2-charts';
 // tslint:disable-next-line:class-name
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 	wheelSpeed: 0.5,
