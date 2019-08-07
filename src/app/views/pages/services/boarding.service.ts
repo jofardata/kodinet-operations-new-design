@@ -10,7 +10,7 @@ export class BoardingService {
 
 //fucntion qui recupere le lien du back-end airports
   public getAllBoarding(){
-    return this.http.get<any>("https://kodinet.herokuapp.com/embarkements/find-all",{observe:'response'})
+    return this.http.get<any>("https://operationsbackend.herokuapp.com/embarkements/find-all",{observe:'response'})
    }
    public getPagedData(page, size){
     return this.http.get<any>("https://kodinet.herokuapp.com/embarkements/pages?page="+page+"&size="+size,{observe:'response'}) 
