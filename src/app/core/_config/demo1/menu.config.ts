@@ -354,6 +354,366 @@ export class MenuConfig {
 					bullet: 'dot',
 				},
 				{
+					title: 'Transcom',
+					root: true,
+					bullet: 'dot',
+					icon: 'flaticon2-user-outline-symbol',
+					submenu: [
+						{
+							title: 'Permis de conduire',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'driving-license'
+						},
+						{
+							title: 'Freits aeriens',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'fret'
+						},
+						{
+							title: 'Embarquements',
+							root: true,
+							icon: 'flaticon2-browser-2',
+							page: 'boarding'
+						},
+						{
+							title: 'Go Pass',
+							root: true,
+							icon: 'flaticon2-user-outline-symbol',
+							page: 'gopass'
+						},
+
+						{
+							title: 'Note de perception',
+							root: true,
+							icon: 'flaticon2-digital-marketing',
+							page: 'builder'
+						},
+						{
+							title: 'Vignettes',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'vignette'
+						},
+					]
+				},
+				{
+					title: 'Mines',
+					root: true,
+					bullet: 'dot',
+					icon: 'flaticon2-user-outline-symbol',
+					submenu: [
+						{
+							title: 'Permis de conduire',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'driving-license'
+						},
+						{
+							title: 'Freits aeriens',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'fret'
+						},
+						{
+							title: 'Embarquements',
+							root: true,
+							icon: 'flaticon2-browser-2',
+							page: 'boarding'
+						},
+						{
+							title: 'Go Pass',
+							root: true,
+							icon: 'flaticon2-user-outline-symbol',
+							page: 'gopass'
+						},
+
+						{
+							title: 'Note de perception',
+							root: true,
+							icon: 'flaticon2-digital-marketing',
+							page: 'builder'
+						},
+						{
+							title: 'Vignettes',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'vignette'
+						},
+					]
+				},
+				{
+					title: 'PMEA',
+					root: true,
+					bullet: 'dot',
+					icon: 'flaticon2-user-outline-symbol',
+					submenu: [
+						{
+							title: 'Permis de conduire',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'driving-license'
+						},
+						{
+							title: 'Freits aeriens',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'fret'
+						},
+						{
+							title: 'Embarquements',
+							root: true,
+							icon: 'flaticon2-browser-2',
+							page: 'boarding'
+						},
+						{
+							title: 'Go Pass',
+							root: true,
+							icon: 'flaticon2-user-outline-symbol',
+							page: 'gopass'
+						},
+
+						{
+							title: 'Note de perception',
+							root: true,
+							icon: 'flaticon2-digital-marketing',
+							page: 'builder'
+						},
+						{
+							title: 'Vignettes',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'vignette'
+						},
+					]
+				},
+				{
+					title: 'Frets Hydroliques',
+					root: true,
+					bullet: 'dot',
+					icon: 'flaticon2-user-outline-symbol',
+					submenu: [
+						{
+							title: 'Permis de conduire',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'driving-license'
+						},
+						{
+							title: 'Freits aeriens',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'fret'
+						},
+						{
+							title: 'Embarquements',
+							root: true,
+							icon: 'flaticon2-browser-2',
+							page: 'boarding'
+						},
+						{
+							title: 'Go Pass',
+							root: true,
+							icon: 'flaticon2-user-outline-symbol',
+							page: 'gopass'
+						},
+
+						{
+							title: 'Note de perception',
+							root: true,
+							icon: 'flaticon2-digital-marketing',
+							page: 'builder'
+						},
+						{
+							title: 'Vignettes',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'vignette'
+						},
+					]
+				},
+				{
+					title: 'Industrie',
+					root: true,
+					bullet: 'dot',
+					icon: 'flaticon2-user-outline-symbol',
+					submenu: [
+						{
+							title: 'Permis de conduire',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'driving-license'
+						},
+						{
+							title: 'Freits aeriens',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'fret'
+						},
+						{
+							title: 'Embarquements',
+							root: true,
+							icon: 'flaticon2-browser-2',
+							page: 'boarding'
+						},
+						{
+							title: 'Go Pass',
+							root: true,
+							icon: 'flaticon2-user-outline-symbol',
+							page: 'gopass'
+						},
+
+						{
+							title: 'Note de perception',
+							root: true,
+							icon: 'flaticon2-digital-marketing',
+							page: 'builder'
+						},
+						{
+							title: 'Vignettes',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'vignette'
+						},
+					]
+				},
+				{
+					title: 'Energie',
+					root: true,
+					bullet: 'dot',
+					icon: 'flaticon2-user-outline-symbol',
+					submenu: [
+						{
+							title: 'Permis de conduire',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'driving-license'
+						},
+						{
+							title: 'Freits aeriens',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'fret'
+						},
+						{
+							title: 'Embarquements',
+							root: true,
+							icon: 'flaticon2-browser-2',
+							page: 'boarding'
+						},
+						{
+							title: 'Go Pass',
+							root: true,
+							icon: 'flaticon2-user-outline-symbol',
+							page: 'gopass'
+						},
+
+						{
+							title: 'Note de perception',
+							root: true,
+							icon: 'flaticon2-digital-marketing',
+							page: 'builder'
+						},
+						{
+							title: 'Vignettes',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'vignette'
+						},
+					]
+				},
+				{
+					title: 'Manage',
+					root: true,
+					bullet: 'dot',
+					icon: 'flaticon2-user-outline-symbol',
+					submenu: [
+						{
+							title: 'Permis de conduire',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'driving-license'
+						},
+						{
+							title: 'Freits aeriens',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'fret'
+						},
+						{
+							title: 'Embarquements',
+							root: true,
+							icon: 'flaticon2-browser-2',
+							page: 'boarding'
+						},
+						{
+							title: 'Go Pass',
+							root: true,
+							icon: 'flaticon2-user-outline-symbol',
+							page: 'gopass'
+						},
+
+						{
+							title: 'Note de perception',
+							root: true,
+							icon: 'flaticon2-digital-marketing',
+							page: 'builder'
+						},
+						{
+							title: 'Vignettes',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'vignette'
+						},
+					]
+				},
+				{
+					title: 'Rapports',
+					root: true,
+					bullet: 'dot',
+					icon: 'flaticon2-user-outline-symbol',
+					submenu: [
+						{
+							title: 'Permis de conduire',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'driving-license'
+						},
+						{
+							title: 'Freits aeriens',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'fret'
+						},
+						{
+							title: 'Embarquements',
+							root: true,
+							icon: 'flaticon2-browser-2',
+							page: 'boarding'
+						},
+						{
+							title: 'Go Pass',
+							root: true,
+							icon: 'flaticon2-user-outline-symbol',
+							page: 'gopass'
+						},
+
+						{
+							title: 'Note de perception',
+							root: true,
+							icon: 'flaticon2-digital-marketing',
+							page: 'builder'
+						},
+						{
+							title: 'Vignettes',
+							root: true,
+							icon: 'flaticon2-expand',
+							page: 'vignette'
+						},
+					]
+				},
+				{
 					title: 'Gestion Des agent',
 					root: true,
 					bullet: 'dot',
@@ -379,49 +739,23 @@ export class MenuConfig {
 							title: 'Associer role',
 							page: 'agent/add-role'
 						},
-						// {
-						// 	title: 'reini',
-						// 	page: 'agent/add-role'
-						// }
+
+						{
+							title: 'Changer mot de passe',
+							page: 'agent/reset-password'
+						},
+
 					]
 				},
-				{
-					title: 'Permis de conduire',
-					root: true,
-					icon: 'flaticon2-expand',
-					page: 'driving-license'
-				},
-				{
-					title: 'Freits aeriens',
-					root: true,
-					icon: 'flaticon2-expand',
-					page: 'fret'
-				},
-				{
-					title: 'Embarquements',
-					root: true,
-					icon: 'flaticon2-browser-2',
-					page: 'boarding'
-				},
-				{
-					title: 'Go Pass',
-					root: true,
-					icon: 'flaticon2-user-outline-symbol',
-					page: 'gopass'
-				},
-				
+
+
 				{
 					title: 'Note de perception',
 					root: true,
 					icon: 'flaticon2-digital-marketing',
 					page: 'builder'
 				},
-				{
-					title: 'Vignettes',
-					root: true,
-					icon: 'flaticon2-expand',
-					page: 'vignette'
-				},
+
 				{section: 'Ignorez ceci'},
 				{
 					title: 'Google Material',
@@ -698,7 +1032,7 @@ export class MenuConfig {
 						},
 					]
 				},
-				
+
 				{section: 'Custom'},
 				{
 					title: 'Error Pages',

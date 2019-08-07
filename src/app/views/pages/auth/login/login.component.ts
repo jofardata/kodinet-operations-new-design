@@ -94,11 +94,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 		this.loading = false;
 	}
 
-	
+
 	post(myForm){
 		this.loading=true;
 		this.userService.login(myForm.value).subscribe(response=>{
-		  
+
 		  console.log(response)
 		  this.loading=false;
 		  if(response.body.responseCode==="00"){
@@ -108,14 +108,15 @@ export class LoginComponent implements OnInit, OnDestroy {
 			localStorage.setItem('roleId', response.body.data.userRole.id);
 			localStorage.setItem('password', response.body.data.password);
 			localStorage.setItem('createPar',response.body.data.createdBy);
-			localStorage.setItem('loggedIn',"yes");			 
+			localStorage.setItem('loggedIn',"yes");
 			if (response.body.data.hasChangedPassword === true) {
-				this.global.showSuccess("Bienvenu..."+response.body.data.bdnId);
+				this.global.showSuccess("Bienvenu..."+response.body.data.name);
 				this.router.navigate(['/']);
+
 			}
 			 else {
 				this.loading=false;
-				this.router.navigate(['/demo1/agents/reset-password'])
+				this.router.navigate(['/demo1/agent/reset-password'])
 			 }
 		  }else{
 			this.loading=false;
@@ -127,6 +128,6 @@ export class LoginComponent implements OnInit, OnDestroy {
 		})
 	  }
 
-	
-	
+
+
 }

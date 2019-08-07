@@ -1,10 +1,39 @@
 <div class="row">
 	<div class="col-xl-12">
 		<div class="row row-full-height">
+
+			<div style=" margin-bottom: 40px" class="col-md-7">
+
+							<canvas baseChart
+							[datasets]="barChartData"
+							[labels]="barChartLabels"
+							[options]="barChartOptions"
+							[plugins]="barChartPlugins"
+							[legend]="barChartLegend"
+							[colors]="barChartColors"
+							[chartType]="barChartType">
+							</canvas>
+
+
+
+			</div>
+
+			<div style=" margin-bottom: 40px" class="col-md-5">
+					<canvas baseChart
+					[data]="pieChartData"
+					[labels]="pieChartLabels"
+					[chartType]="pieChartType"
+					[options]="pieChartOptions"
+					[plugins]="pieChartPlugins"
+					[legend]="pieChartLegend">
+				  </canvas>
+
+	        </div>
+
 			<div class="col-sm-12 col-md-12 col-lg-6">
 				<kt-portlet [class]="'kt-portlet--height-fluid-half kt-portlet--border-bottom-brand'">
 					<kt-portlet-body [class]="'kt-portlet__body--fluid'">
-						<kt-widget26 [value]="4800" [desc]="'IMPORT ET TAX'" [options]="chartOptions1"></kt-widget26>
+						<kt-widget26 [value]="stats?.totalDrvingLicense" [desc]="'PERMIS DE CONDUIRE'" [options]="chartOptions1"></kt-widget26>
 					</kt-portlet-body>
 				</kt-portlet>
 
@@ -12,7 +41,7 @@
 
 				<kt-portlet [class]="'kt-portlet--height-fluid-half kt-portlet--border-bottom-brand'">
 					<kt-portlet-body [class]="'kt-portlet__body--fluid'">
-						<kt-widget26 [value]="2000" [desc]="'ORDONANANCEMENT'" [options]="chartOptions2"></kt-widget26>
+						<kt-widget26 [value]="stats?.totalVignette" [desc]="'VIGNETTES'" [options]="chartOptions2"></kt-widget26>
 					</kt-portlet-body>
 				</kt-portlet>
 			</div>
@@ -20,7 +49,7 @@
 			<div class="col-sm-12 col-md-12 col-lg-6">
 				<kt-portlet [class]="'kt-portlet--height-fluid-half kt-portlet--border-bottom-brand'">
 					<kt-portlet-body [class]="'kt-portlet__body--fluid'">
-						<kt-widget26 [value]="'500'" [desc]="'PAYE'" [options]="chartOptions3"></kt-widget26>
+						<kt-widget26 [value]="stats?.totalFreight" [desc]="'EMBARQUEMENTS'" [options]="chartOptions3"></kt-widget26>
 					</kt-portlet-body>
 				</kt-portlet>
 
@@ -28,7 +57,7 @@
 
 				<kt-portlet [class]="'kt-portlet--height-fluid-half kt-portlet--border-bottom-brand'">
 					<kt-portlet-body [class]="'kt-portlet__body--fluid'">
-						<kt-widget26 [value]="'300'" [desc]="'APPURES'" [options]="chartOptions4"></kt-widget26>
+						<kt-widget26 [value]="stats?.totalGopass" [desc]="'GO PASS'" [options]="chartOptions4"></kt-widget26>
 					</kt-portlet-body>
 				</kt-portlet>
 			</div>
@@ -182,7 +211,7 @@
 </div> -->
 
 
-<!--
+
 <kt-portlet>
 	<kt-portlet-header>
 		<ng-container ktPortletTitle>
@@ -193,4 +222,4 @@
 	<kt-portlet-body></kt-portlet-body>
 	<kt-portlet-footer></kt-portlet-footer>
 </kt-portlet>
--->
+

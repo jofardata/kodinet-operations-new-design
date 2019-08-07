@@ -25,6 +25,13 @@ export class CreateAllUserComponent implements OnInit {
   Roles:[];
   responseCode :any;
   creadtedBy;
+  name;
+  sectors;
+  sectorId;
+  sector;
+  entities;
+  entity;
+  listRole;
   constructor(private createUserService:CreateUserService,
     private globalService:GlobalService) { }
 
@@ -33,9 +40,12 @@ export class CreateAllUserComponent implements OnInit {
       bdnId: new FormControl('',Validators.required),
       // role: new FormControl('',Validators.required),
       createdBy: new FormControl('',Validators.required),
+      entity:new FormControl('', Validators.required),
       entityId: new FormControl('',Validators.required),
       id: new FormControl('',Validators.required),
       telephone: new FormControl('',Validators.required),
+      sector: new FormControl('', Validators.required),
+      sectorId: new FormControl('', Validators.required)
       
   })
   this.getEntites();
@@ -87,5 +97,13 @@ export class CreateAllUserComponent implements OnInit {
   })
   }
 
+
+  onSectorChange(e){
+
+  }
+
+  onEntityChange(e){
+    
+  }
 
 }

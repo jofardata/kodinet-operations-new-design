@@ -29,7 +29,9 @@ const routes=[{
 ]
 
 @NgModule({
-  declarations: [AgentListComponent, AddAgentComponent, AddRoleComponent, PasswordChangeComponent],
+  declarations: [AgentListComponent, AddAgentComponent,
+    ResetPasswordComponent, 
+    AddRoleComponent, PasswordChangeComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
