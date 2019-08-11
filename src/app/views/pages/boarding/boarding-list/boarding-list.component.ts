@@ -59,6 +59,7 @@ export class BoardingComponent implements OnInit {
       filterValue = filterValue.toLowerCase(); 
       this.dataSource.filter = filterValue;
   }
+
   onPageChanged(e){
     this.BoardingService.getPagedData(e.pageIndex, 50).subscribe(response=>{
       console.log(response)
@@ -69,6 +70,7 @@ export class BoardingComponent implements OnInit {
   });
   
   }
+
   onRefresh(){
     this.BoardingService.getPagedData(0, 50).subscribe(response=>{
       console.log(response)
@@ -78,6 +80,7 @@ export class BoardingComponent implements OnInit {
       console.log(this.boarding)
   });
   }
+
   onDate1(e){
     this.minDate =e.target.value;
       this.date1 =new Date(e.target.value).getTime();
@@ -94,5 +97,4 @@ export class BoardingComponent implements OnInit {
         console.log(this.boarding)
     });
   }
-
 }

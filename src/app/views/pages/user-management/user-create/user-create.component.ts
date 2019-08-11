@@ -32,11 +32,27 @@ sectorName : any;
 entity : string;
 entityId:any;
 entityName : any;
+role: any;
+createdBy : any;
+telephone: any;
+roleId : any;
 
 constructor(private createUserService:CreateUserService,
   private globalService:GlobalService) { }
 
   ngOnInit() {
+    // this.bdnId = '';
+    // this.role = '';
+    // this.createdBy = ''; 
+    // this.entity = '';
+    // this.entityId = '';
+    // this.telephone = '';
+    // this.sectorId = '';
+    // this.sectorName = '';
+    // this.sector = '';
+    // this.entityName = '';
+    // this.roleId = '';
+
     this.myForm= new FormGroup({
       bdnId: new FormControl('',Validators.required),
       role: new FormControl('',Validators.required),
