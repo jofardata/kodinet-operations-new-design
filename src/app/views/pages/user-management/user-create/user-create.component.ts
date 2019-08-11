@@ -23,6 +23,8 @@ profession:any[];
 fiscalEntity:[];
 sectors:[];
 Roles:[];
+password:[];
+id:[];
 
 responseCode :any;
 creadtedBy:any;
@@ -50,6 +52,9 @@ constructor(private createUserService:CreateUserService,
       sector:new FormControl('',Validators.required),
       entityName:new FormControl('',Validators.required),
       roleId: new FormControl('',Validators.required),
+      password: new FormControl('',Validators.required),
+      id: new FormControl('',Validators.required),
+      userName: new FormControl('',Validators.required),
       
   })
   this.getEntites();
@@ -65,6 +70,7 @@ constructor(private createUserService:CreateUserService,
         this.agentName = response.body.data.middleName + ' ' + response.body.data.lastName;
 
         this.middleName = response.body.data.middleName;
+        this.id = response.body.data.id;
         this.name = response.body.data.createdBy.name;
         this.lastName = response.body.data.lastName;
         
@@ -104,7 +110,10 @@ constructor(private createUserService:CreateUserService,
       agentName: new FormControl(this.agentName,Validators.required),
       sectorName: new FormControl(this.sectorName,Validators.required),
       sectorId: new FormControl(this.sectorId,Validators.required),
-      entityName: new FormControl(this.entityName,Validators.required)
+      entityName: new FormControl(this.entityName,Validators.required),
+      userName: new FormControl(donnees.value.userName,Validators.required),
+      id: new FormControl(this.id,Validators.required),
+      password: new FormControl(donnees.value.id,Validators.required),
       
     });
 
@@ -119,6 +128,14 @@ constructor(private createUserService:CreateUserService,
         alert(response.body.responseMessage)
       }
     })
+      this.createUserService.createUser(this.myForm.value).subscribe(response=>{
+        if(response.body.responseCode === "00"){
+          alert(response.body.responseMessage)
+          this.ngOnInit();
+        }else{
+          alert("Une erreur est survénue")
+        }
+      })
   }
 
   //  liste des entites 

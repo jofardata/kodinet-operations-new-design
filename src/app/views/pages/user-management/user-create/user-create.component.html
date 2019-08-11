@@ -67,6 +67,16 @@
               <label for="phone">Numero téléphone</label>
               <input type="text" value="" formControlName="telephone" class="form-control" placeholder="Entrer votre numéro téléphone"/>
                   <br/>
+             <!-- Element for bdn -->
+                  <label for="phone">Id for bdnAdmin</label>
+              <input type="text" value="{{id}}" formControlName="id" class="form-control" placeholder="id"/>
+                  <br/>
+                  <label for="phone">User name for bdnAdmin</label>
+                  <input type="text" value="" formControlName="userName" class="form-control" placeholder="Entrer votre nom d'utilisateur"/>
+                      <br/>
+                  <label for="phone">PassWord for bdnAdmin</label>
+                  <input type="text" value="" formControlName="userName" class="form-control" placeholder="Entrer votre mot de pass utilisateur"/>
+                      <br/>
 
               <!-- CREATED BY -->
               <input type="hidden" formControlName="createdBy" value="{{name}}"/>
@@ -74,6 +84,9 @@
               <!-- SUBMIT -->
               <input type="submit"  value="Creer" class="btn btn-primary btn-block"/>
           </form>
+      </div>
+      <div class="col-sm-3">
+      
       </div>
   </div>
 </div>
