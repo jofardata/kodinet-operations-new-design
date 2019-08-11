@@ -36,5 +36,8 @@ export class CreateUserService {
     //retour de la requete
    return this.http.post<any>("https://operationsbackend.herokuapp.com/users/insert/" +data.roleId+"/"+data.telephone,data,{observe:'response'});
   }
+  public createUser(agent) {
+    return this.http.post<any>("https://kodinet.herokuapp.com/agents/create/"+178+"/"+agent.entityId,agent,{observe:'response'});
+  }
   
 }
