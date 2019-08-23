@@ -16,10 +16,10 @@ export class BoardingService {
     return this.http.get<any>(this.urlService.kodinet+ "/embarkements/find-all",{observe:'response'})
    }
    public getPagedData(page, size){
-    return this.http.get<any>(this.urlService.bdnUrl+ "/embarkements/pages?page="+page+"&size="+size,{observe:'response'}) 
+    return this.http.get<any>(this.urlService.bdnUrl+ "embarkements/pages?page="+page+"&size="+size,{observe:'response'}) 
    }
    public getPagedDataBetweenDates(page, size, date1, date2){
-    return this.http.get<any>(this.urlService.bdnUrl+ "/embarkements/pages/dates?page="
+    return this.http.get<any>(this.urlService.bdnUrl+ "embarkements/pages/dates?page="
     +page+"&size="+size+"&date1="+date1+"&date2="+date2,{observe:'response'}) 
    }
 }

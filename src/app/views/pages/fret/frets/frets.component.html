@@ -111,31 +111,51 @@
       <div class="mat-elevation-z8">
         <mat-table [dataSource]="dataSource" matSort >
             
-           <ng-container matColumnDef="createdOn">
+           <ng-container matColumnDef="date">
                 <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Date</mat-header-cell>
-                <mat-cell *matCellDef="let element" ><span >{{element.createdOn|date:'dd/MM/yyyy HH:mm:ss'}}</span></mat-cell>
+                <mat-cell *matCellDef="let element" ><span >{{element.date|date:'dd/MM/yyyy HH:mm:ss'}}</span></mat-cell>
             </ng-container> 
-              <ng-container matColumnDef="passengerName">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Nom Passager</mat-header-cell>
-                  <mat-cell  *matCellDef="let element">{{element.passengerName}}</mat-cell>
+              <ng-container matColumnDef="plan">
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Plan</mat-header-cell>
+                  <mat-cell  *matCellDef="let element">{{element.plan}}</mat-cell>
               </ng-container> 
               <ng-container matColumnDef="destination">
                   <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header > Destination </mat-header-cell>
                   <mat-cell  *matCellDef="let element">{{element.destination}}</mat-cell>
               </ng-container>     
-             <ng-container matColumnDef="freightCompany">
-                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  >Compagnie </mat-header-cell>
-                <mat-cell  *matCellDef="let element">{{element.freightCompany}} </mat-cell>
+             <ng-container matColumnDef="rvaFret">
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  >RVA Fret </mat-header-cell>
+                <mat-cell  *matCellDef="let element">{{element.rvaFret}} </mat-cell>
               </ng-container>
-              <ng-container matColumnDef="weight">
-                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Poid</mat-header-cell>
-                <mat-cell  *matCellDef="let element">{{element.weight}}</mat-cell>
+              <ng-container matColumnDef="transit">
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Transit</mat-header-cell>
+                <mat-cell  *matCellDef="let element">{{element.transit}}</mat-cell>
              </ng-container>
-              <ng-container matColumnDef="amount">
-                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header>Montant à payé</mat-header-cell>
-                  <mat-cell  *matCellDef="let element">{{element.amount}} {{element.currency}}
+              <ng-container matColumnDef="ongFret">
+                  <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header>ong Fret</mat-header-cell>
+                  <mat-cell  *matCellDef="let element">{{element.ongFret}}
                   </mat-cell>
               </ng-container>  
+              <ng-container matColumnDef="clientFret">
+                <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header>Client Fret</mat-header-cell>
+                <mat-cell  *matCellDef="let element">{{element.clientFret}}
+                </mat-cell>
+            </ng-container> 
+            <ng-container matColumnDef="remarques">
+              <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header>Remarques</mat-header-cell>
+              <mat-cell  *matCellDef="let element">{{element.remarques}}
+              </mat-cell>
+          </ng-container> 
+          <ng-container matColumnDef="agent">
+            <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header>Agent</mat-header-cell>
+            <mat-cell  *matCellDef="let element">{{element.agent}}
+            </mat-cell>
+        </ng-container> 
+        <ng-container matColumnDef="name">
+          <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header> Nom de l'agent</mat-header-cell>
+          <mat-cell  *matCellDef="let element">{{element.airline.name}}
+          </mat-cell>
+      </ng-container> 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
         

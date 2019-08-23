@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import {Router} from "@angular/router";
 import { GlobalService } from '../../services/global.service';
 import {CreateUserService} from '../../services/create-user.service';
+// import { Bdnagent } from './classes/bdnagent';
 
 @Component({
   selector: 'kt-user-create',
@@ -144,14 +145,16 @@ constructor(private createUserService:CreateUserService,
         alert(response.body.responseMessage)
       }
     })
-      this.createUserService.createUser(this.myForm.value).subscribe(response=>{
-        if(response.body.responseCode === "00"){
-          alert(response.body.responseMessage)
-          this.ngOnInit();
-        }else{
-          alert("Une erreur est survénue")
-        }
-      })
+
+      // this.createUserService.createUser(this.bdnagent.value).subscribe(response=>{
+      //   if(response.body.responseCode === "00"){
+      //     alert(response.body.responseMessage)
+      //     this.ngOnInit();
+      //     console.log(response.body.data)
+      //   }else{
+      //     alert("Une erreur est survénue")
+      //   }
+      // })
   }
 
   //  liste des entites 

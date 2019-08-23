@@ -21,33 +21,46 @@ date2;
 minDate;
 maxDate;
 
+
 @ViewChild('dataTable') table;
   @ViewChild (MatSort)matSort:MatSort;
   @ViewChild(MatPaginator)paginator:MatPaginator;
   constructor(private freightService:FreightService, private excelService:ExcelService) { 
 
   }
-  displayedColumns: string[] = ['createdOn', 'passengerName', 'destination', 'weight','amount'];
+  displayedColumns: string[] = ['date', 'plan', 'destination', 'rvaFret','transit','ongFret','clientFret','remarques','agent','name'];
   dataSource;
   totalElements;
 
 
   ngOnInit() {
     this.myForm= new FormGroup({})
-    // this.getData();
-    this.page = 0;
-    this.size = 5;
-    this.getAllData();
+    this.getData();
+    // this.page = 0;
+    // this.size = 5;
+    // this.onRefresh();
+    // this.getAllData();
 }
 
+// getAllData(){
+//   this.freightService.getPagedData(this.page, this.size).subscribe(response=>{
+//     console.log(response)
+//     this.freights = response.body.data.content;
+//     this.totalElements = response.body.data.totalElements;
+//     this.dataSource = new MatTableDataSource(response.body.data.content);
+//     this.dataSource.paginator = this.paginator;
+//     console.log(response.body.data.content)
+// })
+// }
+//new
 getAllData(){
-  this.freightService.getPagedData(this.page, this.size).subscribe(response=>{
+  this.freightService.getAllFreight().subscribe(response=>{
     console.log(response)
-    this.freights = response.body.data.content;
-    this.totalElements = response.body.data.totalElements;
-    this.dataSource = new MatTableDataSource(response.body.data.content);
-    this.dataSource.paginator = this.paginator;
-    console.log(response.body.data.content)
+    this.freights = response.body.content;
+    this.totalElements = response.body.totalElements;
+    this.dataSource = new MatTableDataSource(response.body.content);
+    // this.dataSource.paginator = this.paginator;
+    console.log(response.body.content)
 })
 }
 regenerer():void{  
@@ -60,22 +73,45 @@ applyFilter(filterValue){
     this.dataSource.filter = filterValue;
 }
 
+// onPageChanged(e){
+//   this.freightService.getPagedData(e.pageIndex, 5).subscribe(response=>{
+//     console.log(response)
+//     this.freights = response.body.data;
+//     this.dataSource = new MatTableDataSource(response.body.data.content);
+   
+//     console.log(this.freights)
+// });
+
+// }
+
+// onRefresh(){
+//   this.freightService.getPagedData(0, 5).subscribe(response=>{
+//     console.log(response)
+//     this.freights = response.body.data;
+//     this.dataSource = new MatTableDataSource(response.body.data.content);
+   
+//     console.log(this.freights)
+// });
+// }
+
+// new 
 onPageChanged(e){
-  this.freightService.getPagedData(e.pageIndex, 5).subscribe(response=>{
+  this.freightService.getAllFreight().subscribe(response=>{
     console.log(response)
-    this.freights = response.body.data;
-    this.dataSource = new MatTableDataSource(response.body.data.content);
+    this.freights = response.body;
+    this.totalElements = response.body.totalElements;
+    this.dataSource = new MatTableDataSource(response.body.content);
    
     console.log(this.freights)
 });
 
 }
-
 onRefresh(){
-  this.freightService.getPagedData(0, 5).subscribe(response=>{
+  this.freightService.getAllFreight().subscribe(response=>{
     console.log(response)
-    this.freights = response.body.data;
-    this.dataSource = new MatTableDataSource(response.body.data.content);
+    this.freights = response.body;
+    this.totalElements = response.body.totalElements;
+    this.dataSource = new MatTableDataSource(response.body);
    
     console.log(this.freights)
 });
@@ -86,23 +122,26 @@ onDate1(e){
     this.date1 =new Date(e.target.value).getTime();
 }
 
-onDate2(e){
-  this.maxDate =e.target.value;
-    this.date2 =new Date(e.target.value).getTime();
-    this.freightService.getPagedDataBetweenDates(0, 5, new Date(this.date1).getTime(),new Date(this.date2).getTime()).subscribe(response=>{
-      console.log(response)
-      this.freightService = response.body.data;
-      this.dataSource = new MatTableDataSource(response.body.data.content);
-      this.totalElements = response.body.data.totalElements;
-      console.log(this.freights)
-  });
-}
-
-// getData(){
-//   this.freightService.getAllFreight().subscribe(response=>{
-//     this.freights = response.body.data;
-
-//     console.log(this.freights)
-// })
+// onDate2(e){
+//   this.maxDate =e.target.value;
+//     this.date2 =new Date(e.target.value).getTime();
+//     this.freightService.getPagedDataBetweenDates(0, 5, new Date(this.date1).getTime(),new Date(this.date2).getTime()).subscribe(response=>{
+//       console.log(response)
+//       this.freightService = response.body.data;
+//       this.dataSource = new MatTableDataSource(response.body.data.content);
+//       this.totalElements = response.body.data.totalElements;
+//       console.log(this.freights)
+//   });
 // }
+
+getData(){
+  this.freightService.getAllFreight().subscribe(response=>{
+    this.freights = response.body;
+    this.totalElements = response.body.totalElements;
+    this.dataSource = new MatTableDataSource(response.body);
+    // this.totalElements = response.body.totalElements;
+
+    console.log(this.freights)
+})
+}
 }

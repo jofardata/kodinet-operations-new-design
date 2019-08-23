@@ -8,7 +8,7 @@ import { LayoutConfigService } from '../../../core/_base/layout';
 import { SparklineChartOptions } from '../../../core/_base/layout';
 import { Widget4Data } from '../../partials/content/widgets/widget4/widget4.component';
 import { StatsService } from './stats.service';
-import { WeatherService } from '../services/weather.service';
+// import { WeatherService } from '../services/weather.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Chart} from 'chart.js';
 import { Label, Color, SingleDataSet } from 'ng2-charts';
@@ -22,8 +22,7 @@ export class DashboardComponent implements OnInit {
 	stats;
 	chart = [];
 	constructor(private layoutConfigService: LayoutConfigService,
-		private statsService:StatsService,
-		private weatherService:WeatherService) {
+		private statsService:StatsService,) {
 			monkeyPatchChartJsTooltip();
 	  monkeyPatchChartJsLegend();
 	}
