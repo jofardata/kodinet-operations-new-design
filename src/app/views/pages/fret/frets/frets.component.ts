@@ -35,34 +35,34 @@ maxDate;
 
   ngOnInit() {
     this.myForm= new FormGroup({})
-    this.getData();
-    // this.page = 0;
-    // this.size = 5;
-    // this.onRefresh();
-    // this.getAllData();
+    // this.getData();
+    this.page = 0;
+    this.size = 5;
+    this.onRefresh();
+    this.getAllData();
 }
 
-// getAllData(){
-//   this.freightService.getPagedData(this.page, this.size).subscribe(response=>{
-//     console.log(response)
-//     this.freights = response.body.data.content;
-//     this.totalElements = response.body.data.totalElements;
-//     this.dataSource = new MatTableDataSource(response.body.data.content);
-//     this.dataSource.paginator = this.paginator;
-//     console.log(response.body.data.content)
-// })
-// }
-//new
 getAllData(){
-  this.freightService.getAllFreight().subscribe(response=>{
+  this.freightService.getPagedData(this.page, this.size).subscribe(response=>{
     console.log(response)
-    this.freights = response.body.content;
-    this.totalElements = response.body.totalElements;
-    this.dataSource = new MatTableDataSource(response.body.content);
-    // this.dataSource.paginator = this.paginator;
-    console.log(response.body.content)
+    this.freights = response.body.data.content;
+    this.totalElements = response.body.data.totalElements;
+    this.dataSource = new MatTableDataSource(response.body.data.content);
+    this.dataSource.paginator = this.paginator;
+    console.log(response.body.data.content)
 })
 }
+//new
+// getAllData(){
+//   this.freightService.getAllFreight().subscribe(response=>{
+//     console.log(response)
+//     this.freights = response.body.content;
+//     this.totalElements = response.body.totalElements;
+//     this.dataSource = new MatTableDataSource(response.body.content);
+//     // this.dataSource.paginator = this.paginator;
+//     console.log(response.body.content)
+// })
+// }
 regenerer():void{  
   this.excelService.exportAsExcelFile(this.freights, 'Rapport fret en Fichier excel');  
 } 
@@ -73,75 +73,77 @@ applyFilter(filterValue){
     this.dataSource.filter = filterValue;
 }
 
-// onPageChanged(e){
-//   this.freightService.getPagedData(e.pageIndex, 5).subscribe(response=>{
-//     console.log(response)
-//     this.freights = response.body.data;
-//     this.dataSource = new MatTableDataSource(response.body.data.content);
+onPageChanged(e){
+  this.freightService.getPagedData(e.pageIndex, 5).subscribe(response=>{
+    console.log(response)
+    this.freights = response.body.data;
+    this.dataSource = new MatTableDataSource(response.body.data.content);
    
-//     console.log(this.freights)
-// });
+    console.log(this.freights)
+});
 
-// }
+}
 
-// onRefresh(){
-//   this.freightService.getPagedData(0, 5).subscribe(response=>{
-//     console.log(response)
-//     this.freights = response.body.data;
-//     this.dataSource = new MatTableDataSource(response.body.data.content);
+onRefresh(){
+  this.freightService.getPagedData(0, 5).subscribe(response=>{
+    console.log(response)
+    this.freights = response.body.data;
+    this.dataSource = new MatTableDataSource(response.body.data.content);
    
-//     console.log(this.freights)
-// });
-// }
+    console.log(this.freights)
+});
+}
 
 // new 
-onPageChanged(e){
-  this.freightService.getAllFreight().subscribe(response=>{
-    console.log(response)
-    this.freights = response.body;
-    this.totalElements = response.body.totalElements;
-    this.dataSource = new MatTableDataSource(response.body.content);
+// onPageChanged(e){
+//   this.freightService.getAllFreight().subscribe(response=>{
+//     console.log(response)
+//     this.freights = response.body;
+//     this.totalElements = response.body.totalElements;
+//     this.dataSource = new MatTableDataSource(response.body.content);
    
-    console.log(this.freights)
-});
+//     console.log(this.freights)
+// });
 
-}
-onRefresh(){
-  this.freightService.getAllFreight().subscribe(response=>{
-    console.log(response)
-    this.freights = response.body;
-    this.totalElements = response.body.totalElements;
-    this.dataSource = new MatTableDataSource(response.body);
+// }
+
+// new
+// onRefresh(){
+//   this.freightService.getAllFreight().subscribe(response=>{
+//     console.log(response)
+//     this.freights = response.body;
+//     this.totalElements = response.body.totalElements;
+//     this.dataSource = new MatTableDataSource(response.body);
    
-    console.log(this.freights)
-});
-}
+//     console.log(this.freights)
+// });
+// }
 
 onDate1(e){
   this.minDate =e.target.value;
     this.date1 =new Date(e.target.value).getTime();
 }
 
-// onDate2(e){
-//   this.maxDate =e.target.value;
-//     this.date2 =new Date(e.target.value).getTime();
-//     this.freightService.getPagedDataBetweenDates(0, 5, new Date(this.date1).getTime(),new Date(this.date2).getTime()).subscribe(response=>{
-//       console.log(response)
-//       this.freightService = response.body.data;
-//       this.dataSource = new MatTableDataSource(response.body.data.content);
-//       this.totalElements = response.body.data.totalElements;
-//       console.log(this.freights)
-//   });
-// }
-
-getData(){
-  this.freightService.getAllFreight().subscribe(response=>{
-    this.freights = response.body;
-    this.totalElements = response.body.totalElements;
-    this.dataSource = new MatTableDataSource(response.body);
-    // this.totalElements = response.body.totalElements;
-
-    console.log(this.freights)
-})
+onDate2(e){
+  this.maxDate =e.target.value;
+    this.date2 =new Date(e.target.value).getTime();
+    this.freightService.getPagedDataBetweenDates(0, 5, new Date(this.date1).getTime(),new Date(this.date2).getTime()).subscribe(response=>{
+      console.log(response)
+      this.freightService = response.body.data;
+      this.dataSource = new MatTableDataSource(response.body.data.content);
+      this.totalElements = response.body.data.totalElements;
+      console.log(this.freights)
+  });
 }
+
+// getData(){
+//   this.freightService.getAllFreight().subscribe(response=>{
+//     this.freights = response.body;
+//     this.totalElements = response.body.totalElements;
+//     this.dataSource = new MatTableDataSource(response.body);
+//     // this.totalElements = response.body.totalElements;
+
+//     console.log(this.freights)
+// })
+// }
 }

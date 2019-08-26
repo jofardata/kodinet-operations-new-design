@@ -10,9 +10,14 @@ import { Widget4Data } from '../../partials/content/widgets/widget4/widget4.comp
 import { StatsService } from './stats.service';
 // import { WeatherService } from '../services/weather.service';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
-import { Chart} from 'chart.js';
+// import { Chart} from 'chart.js';
+import {Chart} from 'chart.js';
 import { Label, Color, SingleDataSet } from 'ng2-charts';
 import {monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+// import "core-js/shim";
+// import * as am4core from "@amcharts/amcharts4/core";
+// import * as am4charts from "@amcharts/amcharts4/charts";
+
 @Component({
 	selector: 'kt-dashboard',
 	templateUrl: './dashboard.component.html',
@@ -21,8 +26,14 @@ import {monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 export class DashboardComponent implements OnInit {
 	stats;
 	chart = [];
+	LineChart = [];
+	BarChart = [];
+  
+	data : any[]; 
+	mois = [];  
+	montant =[];
 	constructor(private layoutConfigService: LayoutConfigService,
-		private statsService:StatsService,) {
+		private statsService:StatsService) {
 			monkeyPatchChartJsTooltip();
 	  monkeyPatchChartJsLegend();
 	}
@@ -56,25 +67,141 @@ export class DashboardComponent implements OnInit {
 		responsive: true,
 	  };
 
+	//   public barChartData: ChartDataSets[] = [
+	// 	{ data: [25, 32, 35, 38, 40, 21, 19,41,43,40,17,32] },
+	// 	// {data : this.stats },
+	//   ];
+
 	  public barChartData: ChartDataSets[] = [
-		{ data: [25, 32, 35, 38, 40, 21, 19,41,43,40,17,32] },
+		{ data: this.montant },
 		// {data : this.stats },
 	  ];
+
 	  public barChartColors: Color[] = [
 		{ backgroundColor: '#1E1E2D' }
 	  ]
 
-  public barChartLabels: Label[] = ['Janv', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','oct','Nov','Dec'];
-	  public barChartType: ChartType = 'bar';
-	  public barChartLegend = false;
-	  public barChartPlugins = [];
+  		// public barChartLabels: Label[] = ['Janv', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','oct','Nov','Dec'];
+	  	public barChartLabels: Label[];
+  		public barChartType: ChartType = 'bar';
+	  	public barChartLegend = localStorage.getItem('entityName');
+	  	public barChartPlugins = [];
 
-	ngOnInit(): void {
+	ngOnInit() {
 
-		this.statsService.getAllStats().subscribe(res=>{
-			this.stats = res.body.data
-		})
+		this.statsService.dataOrdonnancee().subscribe(response=>{
+			console.log(response.body.data);    
+	  
+			this.data = response.body.data;      
+	  
+			this.data.forEach(obj=>{        
+			  this.mois.push(String(obj['mois']));
+			  this.montant.push(Number(obj['montant']));
+			});
+	  
+			this.data = this.montant;
+			this.barChartLabels = this.mois;
+			this.getdataStat();
+			
+			//BAR CHART
+		  //=========
+		//   this.BarChart = new Chart('barChart',{
+		// 	type: 'bar',
+		// 	data: {
+		// 	  labels: this.mois,
+		// 	  datasets: [{
+		// 		label: localStorage.getItem('entityName'),
+		// 		data: this.montant,
+		// 		backgroundColor: [
+		// 		  "#3cb371",  
+		// 		  "#0000FF",  
+		// 		  "#9966FF",  
+		// 		  "#4C4CFF",  
+		// 		  "#00FFFF",  
+		// 		  "#f990a7",  
+		// 		  "#aad2ed",  
+		// 		  "#FF00FF",  
+		// 		  "Blue",  
+		// 		  "Red",  
+		// 		  "Blue",
+		// 		  "Gray",
+		// 		  "white",
+		// 		  "green"  
+		// 		],
+		// 		borderColor:[
+		// 		  "#3cb371",  
+		// 		  "#0000FF",  
+		// 		  "#9966FF",  
+		// 		  "#4C4CFF",  
+		// 		  "#00FFFF",  
+		// 		  "#f990a7",  
+		// 		  "#aad2ed",  
+		// 		  "#FF00FF",  
+		// 		  "Blue",  
+		// 		  "Red",  
+		// 		  "Blue",
+		// 		  "Gray",
+		// 		  "white",
+		// 		  "green"  
+		// 		],
+		// 		borderwidth: 1
+		// 	  }]
+		// 	},
+		// 	options:{
+		// 	  title:{
+		// 		text:"Recettes Ordonnancées",
+		// 		display:true
+		// 	  },
+		// 	  scales:{
+		// 		yAxes:[{
+		// 		  ticks: {
+		// 			beginAtZero:true
+		// 		  }
+		// 		}]
+		// 	  }
+		// 	}
+		//   });
+	  
+		  //LINE CHART
+		  //==========
+		//   this.LineChart = new Chart('lineChart',{
+		// 	type: 'line',
+		// 	data:{
+		// 	  labels:this.mois,
+		// 	  datasets:[{
+		// 		label: localStorage.getItem('entityName'),
+		// 		data: this.montant,
+		// 		fill:false,
+		// 		lineTension:0.2,
+		// 		borderColor:"red",
+		// 		borderWidth:1 
+		// 	  }]
+		// 	},
+		// 	options:{
+		// 	  title:{
+		// 		text:"Recettes Ordonnancées",
+		// 		display:true
+		// 	  },
+		// 	  scales:{
+		// 		yAxes:[{
+		// 		  ticks: {
+		// 			beginAtZero:true
+		// 		  }
+		// 		}]
+		// 	  }
+		// 	}
+		//   });
+	  
+		  });
+  
+		//   this.statsService.getAllStats().subscribe(res=>{
+		// 	this.stats = res.body.data
+		// });
 
+	}
+
+	
+	
 		// this.weatherService.getStats().subscribe(res=>{
 		// 	const t_board = res['data'].map(res => res.t.totalBoarding);
 		// 	const t_gopas = res['data'].map(res => res.t.totalGopass);
@@ -252,5 +379,21 @@ export class DashboardComponent implements OnInit {
 		// 		valueColor: 'kt-font-brand'
 		// 	},
 		// ]);
-	}
+	
+
+	public getDataOrdonnancee(){
+		this.statsService.dataOrdonnancee().subscribe(response=>{
+		  console.log(response.body.data);    
+	
+		  this.data = response.body.data;
+		});
+}
+public getdataStat(){
+this.statsService.getAllStats().subscribe(res=>{
+	console.log(res)
+	this.stats = res.body.data
+  })
+
+}
+
 }

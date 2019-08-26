@@ -8,7 +8,8 @@ export class UrlService {
   // bdnUrl= 'https://kodinet-bdn.herokuapp.com/';
   bdnUrl= 'https://kodinet.herokuapp.com/';
   // kodinet = 'https://kodinet-operations.herokuapp.com';
-  kodinet='https://operationsbackend.herokuapp.com'
+  kodinet='https://operationsbackend.herokuapp.com';
+  url = 'https://proceduresfiscales.herokuapp.com';
   // bdnUrltest= 'https://kodinet.herokuapp.com';
   
   constructor() { }

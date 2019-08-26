@@ -16,13 +16,13 @@ export class FreightService {
    }
 
   //  function of pagination with angular
-  //  public getPagedData(page, size){
-  //   return this.http.get<any>(this.urlService.kodinet+ "/fret/pages?page="+page+"&size="+size,{observe:'response'}) 
-  //  }
+   public getPagedData(page, size){
+    return this.http.get<any>(this.urlService.kodinet+ "/fret/pages?page="+page+"&size="+size,{observe:'response'}) 
+   }
 
   // // fonction de recuperation des freight avec pagination 
-  //  public getPagedDataBetweenDates(page, size, date1, date2){
-  //   return this.http.get<any>(this.urlService.bdnUrl+ "/freights/pages/dates?page="
-  //   +page+"&size="+size+"&date1="+date1+"&date2="+date2,{observe:'response'}) 
-  //  }
+   public getPagedDataBetweenDates(page, size, date1, date2){
+    return this.http.get<any>(this.urlService.kodinet+ "/fret/pages/dates?page="
+    +page+"&size="+size+"&date1="+date1+"&date2="+date2,{observe:'response'}) 
+   }
 }
