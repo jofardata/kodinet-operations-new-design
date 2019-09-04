@@ -26,7 +26,7 @@ import {monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 export class DashboardComponent implements OnInit {
 	stats;
 	chart = [];
-	LineChart = [];
+	lineChart = [];
 	BarChart = [];
   
 	data : any[]; 
@@ -78,14 +78,33 @@ export class DashboardComponent implements OnInit {
 	  ];
 
 	  public barChartColors: Color[] = [
-		{ backgroundColor: '#1E1E2D' }
+		{ backgroundColor: '#3b79d5' },
+		{borderColor:['red']}
 	  ]
 
   		// public barChartLabels: Label[] = ['Janv', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','oct','Nov','Dec'];
 	  	public barChartLabels: Label[];
   		public barChartType: ChartType = 'bar';
 	  	public barChartLegend = localStorage.getItem('entityName');
-	  	public barChartPlugins = [];
+		  public barChartPlugins = [];
+		  
+		  //2eme graphique
+
+		//   public lineChartData: ChartDataSets[] = [
+		// 	{ data: this.montant },
+		// 	// {data : this.stats },
+		//   ];
+	
+		//   public lineChartColors: Color[] = [
+		// 	{ backgroundColor: '#3b79d5' },
+		// 	{borderColor:['red']}
+		//   ]
+	
+		// 	  // public barChartLabels: Label[] = ['Janv', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul','Aug','Sept','oct','Nov','Dec'];
+		// 	  public lineChartLabels: Label[];
+		// 	  public lineChartType: ChartType = 'bar';
+		// 	  public lineChartLegend = localStorage.getItem('entityName');
+		// 	  public lineChartPlugins = [];
 
 	ngOnInit() {
 
@@ -101,6 +120,7 @@ export class DashboardComponent implements OnInit {
 	  
 			this.data = this.montant;
 			this.barChartLabels = this.mois;
+			// this.lineChartLabels = this.mois;
 			this.getdataStat();
 			
 			//BAR CHART

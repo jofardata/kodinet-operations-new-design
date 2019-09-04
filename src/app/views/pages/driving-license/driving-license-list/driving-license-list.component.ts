@@ -25,7 +25,7 @@ export class DrivingLicenseListComponent implements OnInit {
   @ViewChild (MatSort)matSort:MatSort;
   @ViewChild(MatPaginator)paginator:MatPaginator;
 
-  displayedColumns: string[] = ['createdOn', 'name', 'category', 'phone','status','town'];
+  displayedColumns: string[] = ['createdOn', 'firstName', 'category', 'phone','status','town'];
   dataSource;
   totalElements;
   constructor(private excelService:ExcelService,

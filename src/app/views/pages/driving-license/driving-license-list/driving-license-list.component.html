@@ -32,9 +32,9 @@
                 <!-- <ng-container matColumnDef="loading">
                 <mat-footer-cell class="t-head" *matFooterCellDef mat-sort-header>Loading Data</mat-footer-cell>    
                 </ng-container> -->
-                <ng-container matColumnDef="name">
+                <ng-container matColumnDef="firstName">
                     <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  >Nom</mat-header-cell>
-                    <mat-cell  *matCellDef="let element">{{element.name}}</mat-cell>
+                    <mat-cell  *matCellDef="let element">{{element.firstName}}</mat-cell>
                 </ng-container> 
                 <ng-container matColumnDef="category">
                     <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header  > Categorie </mat-header-cell>
@@ -47,8 +47,8 @@
                 <ng-container matColumnDef="status">
                   <mat-header-cell class="t-head" *matHeaderCellDef mat-sort-header >Status</mat-header-cell>
                   <mat-cell  *matCellDef="let element">
-                      <span *ngIf="element.status=='approved'" class="label label-success btnGreen">{{element.status|lowercase}}</span>
-                      <span *ngIf="element.status=='paid'" class="label label-danger btnBlue">{{element.status|lowercase}}</span>
+                      <span *ngIf="element.status=='approuved'" class="label label-success btnGreen">{{element.status|lowercase}}</span>
+                      <span *ngIf="element.status=='payed'" class="label label-danger btnBlue">{{element.status|lowercase}}</span>
                       <span *ngIf="element.status=='pending'" class="label label-warning btnOrange">{{element.status|lowercase}}</span>
                       <span *ngIf="element.status=='rejected'" class="label label-danger btnRed">{{element.status|lowercase}}</span>
                       <span *ngIf="element.status=='unpaid'" class="label label-default btnRed">{{element.status|lowercase}}</span>
